@@ -133,11 +133,267 @@ namespace OPP05
 
 
 
-        #endregion
+            #endregion
+
+
+            #region Part2
+
+            #region main
+
+            //        using System;
+
+            //        namespace ShipmentSystem
+            //{
+            //    internal class Program
+            //    {
+            //        static void Main(string[] args)
+            //        {
+            //            DeliveryUtilities.PrintSystemTitle("Smart Delivery Management System");
+
+            //            Console.WriteLine("Creating Shipments...");
+            //            DeliveryUtilities.PrintSeparator();
+
+            //            Shipment sh1 = new Shipment("SH001", "Standard", 3, new DeliveryAddress("Cairo"));
+            //            Console.WriteLine("Standard Shipment Created");
+
+            //            Shipment sh2 = new Shipment("SH002", "Express", 2, new DeliveryAddress("Cairo"));
+            //            Console.WriteLine("Express Shipment Created");
+
+            //            Shipment sh3 = new Shipment("SH003", "International", 8, new DeliveryAddress("Cairo"));
+            //            Console.WriteLine("International Shipment Created\n");
+
+            //            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}");
+
+            //            DeliveryUtilities.PrintSystemTitle("Object Copying");
+            //            Shipment assignedShipment = sh1;
+            //            Console.WriteLine($"Original Shipment : {sh1.TrackingCode}");
+            //            Console.WriteLine($"Assigned Shipment : {assignedShipment.TrackingCode}");
+            //            Console.WriteLine($"Same Object : {ReferenceEquals(sh1, assignedShipment)}\n");
+
+            //            DeliveryUtilities.PrintSeparator();
+            //            Console.WriteLine("Shallow Copy");
+            //            DeliveryUtilities.PrintSeparator();
+
+            //            Shipment shallowCopied = sh1.ShallowCopy();
+            //            Console.WriteLine($"Original Shipment Address : {sh1.Address.City}");
+            //            Console.WriteLine($"Copied Shipment Address   : {shallowCopied.Address.City}\n");
+
+            //            Console.WriteLine("Changing copied shipment address...\n");
+            //            shallowCopied.Address.City = "Giza";
+
+            //            Console.WriteLine($"Original Shipment Address : {sh1.Address.City}");
+            //            Console.WriteLine($"Copied Shipment Address   : {shallowCopied.Address.City}");
+            //            Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(sh1.Address, shallowCopied.Address)}\n");
+
+            //            sh1.Address.City = "Cairo";
+
+            //            DeliveryUtilities.PrintSeparator();
+            //            Console.WriteLine("Deep Copy");
+            //            DeliveryUtilities.PrintSeparator();
+
+            //            Shipment deepCopied = sh1.DeepCopy();
+            //            Console.WriteLine($"Original Shipment Address : {sh1.Address.City}");
+            //            Console.WriteLine($"Copied Shipment Address   : {deepCopied.Address.City}\n");
+
+            //            Console.WriteLine("Changing copied shipment address...\n");
+            //            deepCopied.Address.City = "Giza";
+
+            //            Console.WriteLine($"Original Shipment Address : {sh1.Address.City}");
+            //            Console.WriteLine($"Copied Shipment Address   : {deepCopied.Address.City}");
+            //            Console.WriteLine($"Same DeliveryAddress Object : {ReferenceEquals(sh1.Address, deepCopied.Address)}\n");
+
+            //            DeliveryUtilities.PrintSystemTitle("Extension Methods");
+            //            Console.WriteLine(sh1.GetSummary());
+
+            //            sh2.UpdateTrackingStatus("Out For Delivery");
+            //            sh3.UpdateTrackingStatus("Delivered");
+
+            //            Console.WriteLine(sh2.GetSummary());
+            //            Console.WriteLine(sh3.GetSummary());
+            //            Console.WriteLine();
+
+            //            Console.WriteLine($"SH001 Is Delivered : {sh1.IsDelivered()}");
+            //            Console.WriteLine($"SH003 Is Delivered : {sh3.IsDelivered()}\n");
+
+            //            DeliveryUtilities.PrintSystemTitle("Tracking Status");
+            //            sh1.UpdateTrackingStatus("Out For Delivery");
+            //            Console.WriteLine();
+
+            //            DeliveryUtilities.PrintSystemTitle("Static Utilities");
+            //            Console.WriteLine("Delivery Center\n");
+            //            Console.WriteLine($"Total Shipments Created : {Shipment.GetTotalShipmentsCreated()}\n");
+
+            //            DeliveryUtilities.PrintSystemTitle("Partial Method");
+            //            sh1.UpdateTrackingStatus("Delivered");
+            //            Console.WriteLine();
+
+            //            DeliveryUtilities.PrintSystemTitle("Assignment Completed");
+            //        }
+            //    }
+            //}
 
 
 
-        }
+            #endregion
+
+            #region Shipment.Tracking.cs
+
+            //        using System;
+
+            //        namespace ShipmentSystem
+            //{
+            //    public partial class Shipment
+            //    {
+            //        public string TrackingStatus { get; private set; }
+
+            //        partial void OnTrackingStatusChanged(string newStatus);
+
+            //        public void UpdateTrackingStatus(string newStatus)
+            //        {
+            //            TrackingStatus = newStatus;
+            //            OnTrackingStatusChanged(newStatus);
+            //        }
+
+            //        partial void OnTrackingStatusChanged(string newStatus)
+            //        {
+            //            Console.WriteLine($"Tracking status changed to: {newStatus}");
+            //        }
+            //    }
+            //}
+
+
+
+            #endregion
+
+            #region Shipment.cs
+
+            //            using System;
+
+            //namespace ShipmentSystem
+            //    {
+            //        public partial class Shipment
+            //        {
+            //            private static int totalShipmentsCreated = 0;
+
+            //            public string TrackingCode { get; set; }
+            //            public string ShipmentType { get; set; }
+            //            public double Weight { get; set; }
+            //            public DeliveryAddress Address { get; set; }
+
+            //            static Shipment()
+            //            {
+            //                Console.WriteLine("Shipment System Initialized");
+            //            }
+
+            //            public Shipment(string trackingCode, string shipmentType, double weight, DeliveryAddress address)
+            //            {
+            //                TrackingCode = trackingCode;
+            //                ShipmentType = shipmentType;
+            //                Weight = weight;
+            //                Address = address;
+            //                TrackingStatus = "In Transit";
+
+            //                totalShipmentsCreated++;
+            //            }
+
+            //            public static int GetTotalShipmentsCreated()
+            //            {
+            //                return totalShipmentsCreated;
+            //            }
+
+            //            public Shipment CopyShipment()
+            //            {
+            //                return this;
+            //            }
+
+            //            public Shipment ShallowCopy()
+            //            {
+            //                return (Shipment)this.MemberwiseClone();
+            //            }
+
+            //            public Shipment DeepCopy()
+            //            {
+            //                Shipment copy = (Shipment)this.MemberwiseClone();
+            //                copy.Address = this.Address.DeepCopy();
+            //                return copy;
+            //            }
+            //        }
+            //    }
+
+            #endregion
+
+            #region DeliveryUtilities.cs
+
+            //            using System;
+
+            //namespace ShipmentSystem
+            //    {
+            //        public static class DeliveryUtilities
+            //        {
+            //            public static void PrintSeparator()
+            //            {
+            //                Console.WriteLine("==================================================");
+            //            }
+
+            //            public static void PrintSystemTitle(string title)
+            //            {
+            //                PrintSeparator();
+            //                Console.WriteLine(title);
+            //                PrintSeparator();
+            //            }
+            //        }
+            //    }
+            #endregion
+
+            #region ShipmentExtensions.cs
+
+            //        namespace ShipmentSystem
+            //{
+            //    public static class ShipmentExtensions
+            //    {
+            //        public static string GetSummary(this Shipment shipment)
+            //        {
+            //            return $"{shipment.TrackingCode} | {shipment.ShipmentType} | {shipment.Weight} KG | {shipment.TrackingStatus}";
+            //        }
+
+            //        public static bool IsDelivered(this Shipment shipment)
+            //        {
+            //            return shipment.TrackingStatus == "Delivered";
+            //        }
+            //    }
+            //}
+            #endregion
+
+            #region DeliveryAddress.cs
+
+    //        namespace ShipmentSystem
+    //{
+    //    public class DeliveryAddress
+    //    {
+    //        public string City { get; set; }
+
+    //        public DeliveryAddress(string city)
+    //        {
+    //            City = city;
+    //        }
+
+    //        public DeliveryAddress DeepCopy()
+    //        {
+    //            return new DeliveryAddress(this.City);
+    //        }
+    //    }
+    //}
+
+            #endregion
+
+
+
+
+            #endregion
+
+
+
+}
     }
 }
 
